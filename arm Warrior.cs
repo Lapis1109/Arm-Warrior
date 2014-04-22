@@ -30,20 +30,20 @@ namespace SPQR.Engine
             ColossusSmash = 86346,
             HeroicStrike = 78,
             BerserkerRage = 18499,
-			Execute = 5308,
-			StormBolt = 107570,
-			BattleShout = 6673,
-			VictoryRush = 34428,
-			Bloodbath = 12292
+	    Execute = 5308,
+            StormBolt = 107570,
+	    BattleShout = 6673,
+	    VictoryRush = 34428,
+	    Bloodbath = 12292
         }
         internal enum Auras : int                       //This is another convenient list of Auras used in our combat routine
         {												//you can have those in wowhead.com (again) and get the id in url
             Ultimatum = 122509,
-			Recklessness = 1719,
-			DeathSentence = 144442,
-			SuddenDeath = 29725,
-			suddenexecute = 139958,
-			ColossusSmash = 108126,
+	    Recklessness = 1719,
+	    DeathSentence = 144442,
+	    SuddenDeath = 29725,
+	    suddenexecute = 139958,
+	    ColossusSmash = 108126,
         }
 
         public override void CombatLogic()              //This is the DPS / healing coutine, called in loop by SPQR all code here is executed
@@ -52,36 +52,36 @@ namespace SPQR.Engine
             var ME = MySPQR.Internals.ObjectManager.WoWLocalPlayer;
 
             MySPQR.Internals.ActionBar.CastSpellById((int)Spells.BattleShout);
-			if(TARGET.HealthPercent < 99)
+	    if(TARGET.HealthPercent < 99)
                 MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Bloodbath);
-			if(TARGET.HealthPercent < 99)
+	    if(TARGET.HealthPercent < 99)
                 MySPQR.Internals.ActionBar.CastSpellById((int)Spells.BerserkerRage);
-			if(ME.HealthPercent < 70)
-				MySPQR.Internals.ActionBar.CastSpellById((int)Spells.VictoryRush);
-			if(TARGET.HealthPercent < 100 || ME.HasAurabyId((int)Auras.DeathSentence))
-				MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Execute);
+	    if(ME.HealthPercent < 70)
+		MySPQR.Internals.ActionBar.CastSpellById((int)Spells.VictoryRush);
+	    if(TARGET.HealthPercent < 100 || ME.HasAurabyId((int)Auras.DeathSentence))
+	 	MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Execute);
 			
-			if(TARGET.HealthPercent < 20 || ME.Rage > 30)
-				MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Execute);
+	    if(TARGET.HealthPercent < 20 || ME.Rage > 30)
+	    	MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Execute);
 				
             MySPQR.Internals.ActionBar.CastSpellById((int)Spells.ColossusSmash);
 			
-			if(TARGET.HealthPercent < 99)
+	    if(TARGET.HealthPercent < 99)
                 MySPQR.Internals.ActionBar.CastSpellById((int)Spells.StormBolt);
 				
-			if(TARGET.HasAurabyId((int)Auras.ColossusSmash))
-				MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Slam);
+	    if(TARGET.HasAurabyId((int)Auras.ColossusSmash))
+		MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Slam);
 				
-			if(ME.HasAurabyId((int)Auras.Recklessness))
-				MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Slam);
+	    if(ME.HasAurabyId((int)Auras.Recklessness))
+		MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Slam);
 
-			if(ME.HasAurabyId((int)Auras.suddenexecute))
-				MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Overpower);
+	    if(ME.HasAurabyId((int)Auras.suddenexecute))
+		MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Overpower);
 				
-			if(ME.Rage > 40)
-                 MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Slam);
-			if(ME.Rage > 80)
-                 MySPQR.Internals.ActionBar.CastSpellById((int)Spells.HeroicStrike);
+	    if(ME.Rage > 40)
+                MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Slam);
+	    if(ME.Rage > 80)
+                MySPQR.Internals.ActionBar.CastSpellById((int)Spells.HeroicStrike);
 
             MySPQR.Internals.ActionBar.CastSpellById((int)Spells.Overpower);
 
