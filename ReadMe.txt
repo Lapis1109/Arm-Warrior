@@ -14,5 +14,6 @@
 -I'm able to pull 120k - 150k dps on Single target boss in LFR (525 ilvl)
 -100k+ on Raid dummy.
 Upcoming
-- Fury
+-Improve Arm
+-Add Fury
 - Maybe more, who knows.
